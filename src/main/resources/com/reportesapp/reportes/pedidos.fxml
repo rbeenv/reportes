@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<VBox alignment="CENTER" prefHeight="243.0" prefWidth="242.0" spacing="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reportesapp.reportes.ControladorPedidos">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+    <VBox>
+        <children>
+            <ImageView fx:id="logoImage" fitHeight="100" fitWidth="202.0">
+                <image>
+                    <Image url="@../../../images/imagenLogoMensajeria.png" />
+                </image>
+            </ImageView>
+        </children>
+    </VBox>
+    <DatePicker fx:id="datePickerInicio" promptText="Fecha de Inicio" />
+    <DatePicker fx:id="datePickerFin" promptText="Fecha de Fin" />
+    <Button fx:id="btnGenerarPedido" onAction="#generarInforme" text="Generar Informe" />
+</VBox>
