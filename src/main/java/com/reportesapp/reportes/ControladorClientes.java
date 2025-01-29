@@ -49,14 +49,14 @@ public class ControladorClientes {
             return;
         }
 
-        try (Connection conexion = DriverManager.getConnection("jdbc:mariadb://localhost:3306/report_db", "ruben", "arrullo")) {
+        try (Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/report_db", "ruben", "arrullo")) {
             Map<String, Object> parametros = new HashMap<>();
             parametros.put("Cliente", Integer.parseInt(cliente)); // Convertir cliente a Integer
             parametros.put("Estado", estado);
 
             System.out.println("Parámetros establecidos: " + parametros);
 
-            JasperPrint print = JasperFillManager.fillReport("src/main/reportes/PedidosPorClienteYEstado.jasper", parametros, conexion);
+            JasperPrint print = JasperFillManager.fillReport("src/main/resources/reportes/PedidosPorClienteYEstado.jasper", parametros, conexion);
 
             String outputFilePath = "Informe_Pedidos_Cliente_Estado.pdf";
             JasperExportManager.exportReportToPdfFile(print, outputFilePath);

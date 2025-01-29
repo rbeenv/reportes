@@ -44,14 +44,14 @@ public class ControladorPedidos {
             return;
         }
 
-        try (Connection conexion = DriverManager.getConnection("jdbc:mariadb://localhost:3306/report_db", "ruben", "arrullo")) {
+        try (Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/report_db", "ruben", "arrullo")) {
             Map<String, Object> parametros = new HashMap<>();
             parametros.put("FechaInicio", java.sql.Date.valueOf(datePickerInicio.getValue()));
             parametros.put("FechaFin", java.sql.Date.valueOf(datePickerFin.getValue()));
 
             System.out.println("Parámetros establecidos: " + parametros);
 
-            String reportPath = "src/main/reportes/PedidosPorFecha.jasper"; // Ruta jasper
+            String reportPath = "src/main/resources/reportes/PedidosPorFecha.jasper"; // Ruta jasper
             JasperPrint print = JasperFillManager.fillReport(reportPath, parametros, conexion);
 
             String outputFilePath = "Informe_Pedidos_Fecha.pdf";

@@ -1,0 +1,60 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="Report" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5d90d3f3-6e75-4792-8fae-e93ce2a8f843">
+	<parameter name="Cliente" class="java.lang.Integer"/>
+	<parameter name="Estado" class="java.lang.String"/>
+	<query language="sql"><![CDATA[SELECT p.id, c.nombre, p.fecha, p.total, p.estado
+            FROM pedidos p, clientes c
+            WHERE p.cliente_id = c.id AND p.cliente_id = $P{Cliente} AND p.estado = $P{Estado}]]></query>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="fecha" class="java.util.Date"/>
+	<field name="total" class="java.lang.Double"/>
+	<field name="estado" class="java.lang.String"/>
+	<title height="50">
+		<element kind="staticText" uuid="7bf304fd-2d23-4018-94ad-943f7e325cd7" x="0" y="0" width="555" height="30" fontSize="18.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Reporte de Pedidos por Cliente y Estado]]></text>
+		</element>
+	</title>
+	<columnHeader height="20">
+		<element kind="staticText" uuid="ede9fc8e-5467-4e5d-85ba-1e3861225629" x="0" y="0" width="50" height="20" hTextAlign="Center">
+			<text><![CDATA[ID]]></text>
+		</element>
+		<element kind="staticText" uuid="69b0710f-9dfb-4800-8336-e744c6ff6f58" x="50" y="0" width="150" height="20" hTextAlign="Center">
+			<text><![CDATA[Nombre]]></text>
+		</element>
+		<element kind="staticText" uuid="3f9a4ad1-68ad-4bb5-934b-243df85289e1" x="200" y="0" width="100" height="20" hTextAlign="Center">
+			<text><![CDATA[Fecha]]></text>
+		</element>
+		<element kind="staticText" uuid="6c729bd6-fac2-4260-b8d2-423e499b27b7" x="300" y="0" width="100" height="20" hTextAlign="Center">
+			<text><![CDATA[Total]]></text>
+		</element>
+		<element kind="staticText" uuid="603b912c-90ca-4831-a967-48fbb42b99df" x="400" y="0" width="155" height="20" hTextAlign="Center">
+			<text><![CDATA[Estado]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<element kind="textField" uuid="0833d0b4-8fea-4791-b6c1-fa4ccaa69692" x="0" y="0" width="50" height="20" hTextAlign="Center">
+				<expression><![CDATA[$F{id}]]></expression>
+			</element>
+			<element kind="textField" uuid="76fcffbd-adf5-4d1e-906b-de45cfbe1e87" x="50" y="0" width="150" height="20" hTextAlign="Center">
+				<expression><![CDATA[$F{nombre}]]></expression>
+			</element>
+			<element kind="textField" uuid="1522a7d8-d75d-4149-9610-29a8f91be024" x="200" y="0" width="100" height="20" hTextAlign="Center">
+				<expression><![CDATA[$F{fecha}]]></expression>
+			</element>
+			<element kind="textField" uuid="eb18f03d-2aa2-4231-ac25-e2ee9fbad51c" x="300" y="0" width="100" height="20" hTextAlign="Center">
+				<expression><![CDATA[$F{total}]]></expression>
+			</element>
+			<element kind="textField" uuid="defec241-8acd-4ee3-8491-570b9822fa13" x="400" y="0" width="155" height="20" hTextAlign="Center">
+				<expression><![CDATA[$F{estado}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="20"/>
+	<pageFooter height="20">
+		<element kind="staticText" uuid="96be607f-d2e9-4e2f-90ed-a0a2484e33c5" x="0" y="0" width="555" height="20" hTextAlign="Center">
+			<text><![CDATA[Fin del Reporte]]></text>
+		</element>
+	</pageFooter>
+</jasperReport>
